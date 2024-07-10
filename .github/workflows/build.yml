@@ -1,0 +1,30 @@
+name: Build and Upload
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '0 0 * * 0' # Co tydzień
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
+        pip install -r requirements.txt
+    - name: Build
+      run: pyinstaller --onefile --noconsole project.py
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: project-exe
+        path: dist/project.exe
