@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import sys
 import argparse
 import json
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QFileDialog, QLabel, QMessageBox
-=======
-import argparse
->>>>>>> e9bdc11928a09da24464c4ba88acd98465de6e45
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Konwersja plików.')
@@ -13,7 +9,6 @@ def parse_arguments():
     parser.add_argument('destination', help='Ścieżka do pliku docelowego')
     return parser.parse_args()
 
-<<<<<<< HEAD
 def load_json(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -94,8 +89,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
-=======
-if __name__ == "__main__":
-    args = parse_arguments()
-    print(f"Source: {args.source}, Destination: {args.destination}")
->>>>>>> e9bdc11928a09da24464c4ba88acd98465de6e45
+
